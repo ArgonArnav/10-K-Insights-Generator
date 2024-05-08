@@ -1,6 +1,6 @@
 # 10-K Insights Generator 
 
-Deployed on : [https://georgia-tech-takehome-assignment.onrender.com/]
+Deployed on : [https://georgia-tech-takehome-assignment.onrender.com/] (loading might take a while as its a free service but it will work!)
 
 This Flask web application extracts insights from 10-K filings of companies and generates a word cloud visualization of the extracted insights. The application uses Google's Generative AI for content generation and Flask for the web framework.
 
