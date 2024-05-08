@@ -1,4 +1,4 @@
-# 10-K Insights Generator 
+# 10-K Insights Generator (TEST the app on AAPL, GOOGL and MSFT tickers only)
 
 Deployed on : [https://georgia-tech-takehome-assignment.onrender.com/] (loading might take a while as its a free service but it will work!)
 
