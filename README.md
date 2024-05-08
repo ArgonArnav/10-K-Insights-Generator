@@ -7,7 +7,7 @@ This Flask web application extracts insights from 10-K filings of companies and 
 - **Pydantic**: Data validation and settings management using Python type annotations.
 - **Requests**: HTTP library for sending requests.
 - **Matplotlib**: Data visualization library for creating static, animated, and interactive visualizations.
-- **Google Generative AI**: API for text generation and content creation.
+- **Google Generative AI**: Used Gemini-pro API for text generation and content creation.
 - **WordCloud**: Text visualization library for creating word clouds.
 - **sec-edgar-downloader**: Python library for downloading company filings from the SEC's EDGAR database.
 
