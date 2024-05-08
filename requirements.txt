@@ -7,3 +7,4 @@ Werkzeug==1.0.0
 MarkupSafe==2.0.1
 sec-edgar-downloader==5.0.2
 matplotlib
+wordcloud
