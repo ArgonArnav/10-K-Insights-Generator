@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analysis</title>
+</head>
+<body>
+    <h1>Text Analysis</h1>
+    <form id="textForm">
+        <label for="ticker">Company Ticker:</label><br>
+        <input type="text" id="ticker" name="ticker"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="loading" style="display: none;">Processing...</div>
+    <div id="result" style="display: none;">
+        <h2>Insights</h2>
+        <ul id="facts"></ul>
+        <img id="wordcloud" src="" alt="Word Cloud">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#textForm').submit(function (event) {
+                event.preventDefault();
+                var question = $('#question').val();
+                var ticker = $('#ticker').val();
+                $('#loading').show();
+                $('#result').hide();
+                $.ajax({
+                    type: 'POST',
+                    url: '/submit_question_and_documents',
+                    contentType: 'application/json',
+                    data: JSON.stringify({question: question, ticker: ticker}),
+                    success: function () {
+                        $.get('/get_question_and_facts', function (data) {
+                            $('#facts').empty();
+                            $.each(data['facts'], function (index, value) {
+                                $('#facts').append($('<li>').text(value));
+                            });
+                            $('#wordcloud').attr('src', '/static/wordcloud.png');
+                            $('#loading').hide();
+                            $('#result').show();
+                        });
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        $('#loading').hide();
+                        alert('Error: ' + errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
